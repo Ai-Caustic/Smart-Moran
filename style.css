@@ -1,0 +1,15 @@
+.footer {
+  position: fixed;
+  height: 30px;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: black;
+}
+.footer p {
+  font-family: "Signika", sans-serif;
+  color: white;
+  font-size: medium;
+  text-align: center;
+}
