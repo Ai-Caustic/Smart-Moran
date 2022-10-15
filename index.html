@@ -14,7 +14,7 @@
   <title>Smart Moran</title>
 </head>
 
-<body>
+<body onload="load()">
   <header class="header">
     <span>
       <img class="logoMoran" src="Images\moranArtboard-1-1024x305.png">
@@ -32,7 +32,13 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartCurtainControl\smc2.jpg" alt="" srcset="">
+          <img src="Images\SmartCurtainControl\smc1.jpg" alt="Smart Curtain Control" id="slider1">
+          <!-- <ul id="slider1">
+            <li id="sl1img1"> <img src="Images\SmartCurtainControl\smc1.jpg" alt="" srcset=""></li>
+            <li id="sl2img2"><img src="Images\SmartCurtainControl\smc2.jpg" alt="" srcset=""></li>
+            <li id="sl3img3"><img src="Images\SmartCurtainControl\smc3.jpg" alt="" srcset=""></li>
+          </ul> -->
+
         </div>
         <div class="card-text">
           <ul>
@@ -62,7 +68,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartWaterLeakageControl\swlc1.jpg" alt="" srcset="">
+          <ul id="slider2">
+            <li><img src="Images\SmartWaterLeakageControl\swlc1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartWaterLeakageControl\swlc2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartWaterLeakageControl\swlc3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -89,7 +99,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartIntruderSystem\sis3.jpg" alt="" srcset="">
+          <ul id="slider3">
+            <li><img src="Images\SmartIntruderSystem\sis1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartIntruderSystem\sis2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartIntruderSystem\sis3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -118,7 +132,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartGateAutomation\sga1.jpg" alt="" srcset="">
+          <ul id="slider4">
+            <li><img src="Images\SmartGateAutomation\sga1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartGateAutomation\sga2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartGateAutomation\sga3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -148,7 +166,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartCCTV\sc2.jpg" alt="" srcset="">
+          <ul id="slider5">
+            <li><img src="Images\SmartCCTV\sc1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartCCTV\sc2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartCCTV\sc3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -173,6 +195,9 @@
           </ul>
         </div>
       </div>
+      <div class="nav1">
+        <button type="button" class="btn btn-primary" onclick="displaySec2()">Next</button>
+      </div>
     </div>
   </div>
 
@@ -187,7 +212,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\WiFiDoorSensor&WindowSensor\wds1.jpg" alt="" srcset="">
+          <ul id="slider6">
+            <li><img src="Images\WiFiDoorSensor&WindowSensor\wds1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\WiFiDoorSensor&WindowSensor\wds2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\WiFiDoorSensor&WindowSensor\wds3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -211,7 +240,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\FireDetection\fd3.jpg" alt="" srcset="">
+          <ul id="slider7">
+            <li><img src="Images\FireDetection\fd1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\FireDetection\fd2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\FireDetection\fd3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -235,7 +268,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartPowerSockets\sps1.jpg" alt="" srcset="">
+          <ul id="slider8">
+            <li><img src="Images\SmartPowerSockets\sps1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartPowerSockets\sps2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartPowerSockets\sps3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -259,7 +296,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartSecurityLighting\ssl3.jpg" alt="" srcset="">
+          <ul id="slider9">
+            <li><img src="Images\SmartSecurityLighting\ssl1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartSecurityLighting\ssl2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartSecurityLighting\ssl3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -289,7 +330,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartIndoorLighting\sil2.jpg" alt="" srcset="">
+          <ul id="slider10">
+            <li><img src="Images\SmartIndoorLighting\sil1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartIndoorLighting\sil2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartIndoorLighting\sil3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -322,7 +367,11 @@
       </div>
       <div class="card-body">
         <div class="card-img">
-          <img src="Images\SmartEnergyMonitoring\sem1.jpg" alt="" srcset="">
+          <ul id="slider11">
+            <li><img src="Images\SmartEnergyMonitoring\sem1.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartEnergyMonitoring\sem2.jpg" alt="" srcset=""></li>
+            <li><img src="Images\SmartEnergyMonitoring\sem3.jpg" alt="" srcset=""></li>
+          </ul>
         </div>
         <div class="card-text">
           <ul>
@@ -341,14 +390,20 @@
           </ul>
         </div>
       </div>
+      <div class="nav2">
+        <button type="button" class="btn btn-primary" onclick="displaySec1()">Previous</button>
+      </div>
+
     </div>
+
 
   </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
-  <script src="index.js"></script>
+  <script src="script.js"></script>
+  <script src="slideshow.js"></script>
 </body>
 <footer>
   <div class="footer">

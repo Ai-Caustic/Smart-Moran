@@ -17,7 +17,7 @@ footer {
   width: 100%;
   height: auto;
   padding: 50px 100px;
-  background: black;
+  background: rgb(87, 17, 17);
 }
 footer .footer {
   width: 100%;
@@ -68,7 +68,7 @@ footer .footer .sec p {
 }
 .copyright-text {
   width: 100%;
-  background: black;
+  background: rgb(87, 17, 17);
   padding: 8px 100px;
   text-align: center;
   color: white;
