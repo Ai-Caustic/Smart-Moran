@@ -5,6 +5,16 @@ function load() {
   section1.style.display = "block";
   section2.style.display = "none";
   setInterval(slider, 4000);
+  setInterval(slider2, 4000);
+  setInterval(slider3, 4000);
+  setInterval(slider4, 4000);
+  setInterval(slider5, 4000);
+  setInterval(slider6, 4000);
+  setInterval(slider7, 4000);
+  setInterval(slider8, 4000);
+  setInterval(slider9, 4000);
+  setInterval(slider10, 4000);
+  setInterval(slider11, 4000);
 }
 
 function displaySec1() {
