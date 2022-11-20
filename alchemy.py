@@ -5,7 +5,7 @@ meta = MetaData()
 
 # create engine
 engine = db.create_engine(
-    "postgresql://postgres:Caustic69@localhost:5000/TestDB", echo=True)
+    "postgresql://Victor:Caustic69@localhost:5000/SM", echo=True)
 
 # create tables
 customers = Table(
@@ -44,6 +44,12 @@ customerProducts = Table(
         'products.productId'), nullable=False),
     Column('CustomerId', Integer, ForeignKey(
         'customers.customerId'), nullable=False),
+)
+
+roles = Table(
+    'roles', meta,
+    Column('roleId', Integer, primary_key=True),
+    Column('roleName', String, unique=True)
 )
 
 # Create all defined table objects
