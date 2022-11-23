@@ -54,4 +54,12 @@ roles = Table(
 
 # Create all defined table objects
 meta.create_all(engine)
-# Column("user_id", Integer, ForeignKey("user.user_id"), nullable=False)
+
+# insert records to the table
+user1 = users.insert().values(userId=1, firstName='Victor', secondName='Micheni',
+                              email='victormichenim@gmail.com', password='caustic')
+user2 = users.insert().values(userId=2, firstName='James', secondName='Gichuki',
+                              email='jamesnyokabi@gmail.com', password='jamo')
+
+engine.execute(user1)
+engine.execute(user2)
