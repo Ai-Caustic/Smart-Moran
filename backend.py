@@ -7,7 +7,7 @@ from sqlalchemy.sql import func
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://Victor:Caustic69@localhost:5000/SM" + \
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Caustic69@localhost:5432/SM" + \
     os.path.join(basedir, 'database.db')
 
 

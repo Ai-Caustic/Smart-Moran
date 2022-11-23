@@ -5,7 +5,7 @@ meta = MetaData()
 
 # create engine
 engine = db.create_engine(
-    "postgresql://Victor:Caustic69@localhost:5000/SM", echo=True)
+    "postgresql://postgres:Caustic69@localhost:5432/SM", echo=True)
 
 # create tables
 customers = Table(
