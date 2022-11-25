@@ -1,24 +1,21 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
+from flask_restful import Resource, Api
+from flask_marshmallow import Marshmallow
 
 
 app = Flask(__name__)
-
 basedir = os.path.abspath(os.path.dirname(__file__))
-
-
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Caustic69@localhost:5432/SM"
 app.config['SQLAlCHEMY_TRACK_MODIFICATIONS'] = True
-
-#os.path.join(basedir, 'database.db')
-
-
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
+api = Api(app)
 
 
-class Customers(db.Model):
+class Customer(db.Model):
     __tablename__ = 'customers'
     customerId = db.Column(db.Integer, primary_key=True)
     firstName = db.Column(db.String, nullable=False)
@@ -36,25 +33,50 @@ class User(db.Model):
     email = db.Column(db.String, nullable=False)
     password = db.Column(db.String, nullable=False)
 
+    def __repr__(self):
+        return '<User %s>' % self.firstName
 
-# routes
+
+# Create a marshmallow schema based on the User model
+class CustomerSchema(ma.Schema):
+    class Meta:
+        fields = ("customerId", "firstName", "lastName",
+                  "phoneNo" "email", "notes")
+        model = Customer
 
 
-@ app.route('/')
-def index():
-    try:
-        users = User.query.order_by(User.userId).all()
-        user_text = '<ul>'
-        for user in users:
-            user_text += '<li>' + user.firstName + '-' + user.secondName + '</li>'
-            user_text += '</ul>'
-            return user_text
-    except Exception as e:
-        # e holds a description of the error
-        error_text = '<p> The error: <br>' + str(e) + '</p>'
-        hed = '<h1>Something is broken.</h1>'
-        return hed + error_text
+post_schema = CustomerSchema
+posts_schema = CustomerSchema(many=True)
 
+
+# Create a Restful resource
+class PostListResource(Resource):
+    def get(self):
+        customers = Customer.query.all()
+        return posts_schema.dump(customers)
+
+    def post(self):
+        new_post = Customer(
+            customerId=request.json['customerId'],
+            firstName=request.json['firstName'],
+            lastName=request.json['lastName'],
+            phoneNo=request.json['phoneNo'],
+            email=request.json['email'],
+            notes=request.json['notes'],
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        return post_schema.dump(new_post)
+
+
+class PostResource(Resource):
+    def get(self, customer_id):
+        customer = Customer.query.get_or_404(customer_id)
+        return post_schema.dump(customer)
+
+
+api.add_resource(PostListResource, '/customers')
+api.add_resource(PostResource, '/customers/<int:customer_id>')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
