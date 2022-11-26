@@ -1,5 +1,5 @@
 import sqlalchemy as db
-from sqlalchemy import MetaData, Table, Column, Integer, String, inspect, ForeignKey
+from sqlalchemy import MetaData, Table, Column, Integer, String, ForeignKey
 meta = MetaData()
 
 
@@ -56,10 +56,10 @@ roles = Table(
 meta.create_all(engine)
 
 # insert records to the table
-user1 = users.insert().values(userId=1, firstName='Victor', secondName='Micheni',
-                              email='victormichenim@gmail.com', password='caustic')
-user2 = users.insert().values(userId=2, firstName='James', secondName='Gichuki',
-                              email='jamesnyokabi@gmail.com', password='jamo')
+# user1 = users.insert().values(userId=1, firstName='Victor', secondName='Micheni',
+#                             email='victormichenim@gmail.com', password='caustic')
+# user2 = users.insert().values(userId=2, firstName='James', secondName='Gichuki',
+#                             email='jamesnyokabi@gmail.com', password='jamo')
 
-engine.execute(user1)
-engine.execute(user2)
+# engine.execute(user1)
+# engine.execute(user2)

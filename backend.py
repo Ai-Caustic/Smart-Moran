@@ -34,11 +34,11 @@ class User(db.Model):
     password = db.Column(db.String, nullable=False)
 
 
-# Create a marshmallow schema based on the User model
+# Create a marshmallow schema based on the Customer model
 class CustomerSchema(ma.Schema):
     class Meta:
         fields = ("customerId", "firstName", "lastName",
-                  "phoneNo" "email", "notes")
+                  "phoneNo", "email", "notes")
         model = Customer
 
 
