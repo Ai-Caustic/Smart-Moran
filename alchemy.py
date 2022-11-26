@@ -38,14 +38,6 @@ users = Table(
     Column('password', String, nullable=False),
 )
 
-customerProducts = Table(
-    'customerProducts', meta,
-    Column('productId', Integer, ForeignKey(
-        'products.productId'), nullable=False),
-    Column('CustomerId', Integer, ForeignKey(
-        'customers.customerId'), nullable=False),
-)
-
 roles = Table(
     'roles', meta,
     Column('roleId', Integer, primary_key=True),
@@ -55,11 +47,13 @@ roles = Table(
 # Create all defined table objects
 meta.create_all(engine)
 
-# insert records to the table
-# user1 = users.insert().values(userId=1, firstName='Victor', secondName='Micheni',
-#                             email='victormichenim@gmail.com', password='caustic')
-# user2 = users.insert().values(userId=2, firstName='James', secondName='Gichuki',
-#                             email='jamesnyokabi@gmail.com', password='jamo')
+'''
+#insert records to the table
+user1 = users.insert().values(userId=1, firstName='Victor', secondName='Micheni',
+                            email='victormichenim@gmail.com', password='caustic')
+user2 = users.insert().values(userId=2, firstName='James', secondName='Gichuki',
+                            email='jamesnyokabi@gmail.com', password='jamo')
 
-# engine.execute(user1)
-# engine.execute(user2)
+engine.execute(user1)
+engine.execute(user2)
+'''
