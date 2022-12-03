@@ -17,7 +17,8 @@ api = Api(app)
 
 class Customer(db.Model):
     __tablename__ = 'customers'
-    customerId = db.Column(db.Integer, primary_key=True, nullable=False)
+    customerId = db.Column(db.Integer, primary_key=True,
+                           nullable=False, autoincrement=True)
     firstName = db.Column(db.String, nullable=False)
     lastName = db.Column(db.String, nullable=False)
     phoneNo = db.Column(db.Integer, nullable=False)
@@ -27,7 +28,8 @@ class Customer(db.Model):
 
 class Product(db.Model):
     __tablename__ = 'products'
-    productId = db.Column(db.Integer, primary_key=True, nullable=False)
+    productId = db.Column(db.Integer, primary_key=True,
+                          autoincrement=True, nullable=False)
     productName = db.Column(db.String, nullable=False)
     productDesc = db.Column(db.String, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey(
@@ -45,14 +47,14 @@ class User(db.Model):
     password = db.Column(db.String, nullable=False)
 
 
-'''
 class CustomerProduct(db.Model):
     __tablename__ = 'customerProducts'
+    Id = db.Column(db.Integer, primary_key=True,
+                   nullable=False, autoincrement=True)
+    customerId = db.Column(db.Integer, db.ForeignKey(
+        'customers.customerId'))
     productId = db.Column(db.Integer, db.ForeignKey(
-        'products.productId'), nullable=False)
-    CustomerId = db.Column(db.Integer, db.ForeignKey(
-        'customers.customerId'), nullable=False)
-'''
+        'products.productId'))
 
 
 class Role(db.Model):
@@ -83,12 +85,20 @@ class UserSchema(ma.Schema):
         model = User
 
 
+class CustomerProductSchema(ma.Schema):
+    class Meta:
+        fields = ("Id", "customerId", "productId")
+        model = CustomerProduct
+
+
 customer_schema = CustomerSchema()
 customers_schema = CustomerSchema(many=True)
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
+customerproduct_schema = CustomerProductSchema()
+customerproducts_schema = CustomerProductSchema(many=True)
 
 
 # Create a Restful resource
@@ -149,7 +159,7 @@ class ProductListResource(Resource):
 
     def post(self):
         new_product = Product(
-            productId=request.json['productId'],
+            # productId=request.json['productId'],
             productName=request.json['productName'],
             productDesc=request.json['productDesc'],
             userId=request.json['userId'],
@@ -169,8 +179,8 @@ class ProductResource(Resource):
     def patch(self, productId):
         product = Product.query.get_or_404(productId)
 
-        if 'productId' in request.json:
-            product.productId = request.json['productId']
+        # if 'productId' in request.json:
+        #     product.productId = request.json['productId']
         if 'productName' in request.json:
             product.productName = request.json['productName']
         if 'productDesc' in request.json:
@@ -239,12 +249,55 @@ class UserResource(Resource):
         return '', 204
 
 
+class CustomerProductListResource(Resource):
+    def get(self):
+        customerProduct = CustomerProduct.query.all()
+        return customerproducts_schema.dump(customerProduct)
+
+    def post(self):
+        new_customerProduct = CustomerProduct(
+            # Id=request.json['Id'],
+            customerId=request.json['customerId'],
+            productId=request.json['productId'],
+        )
+        db.session.add(new_customerProduct)
+        db.session.commit()
+        return customerproduct_schema.dump(new_customerProduct)
+
+
+class CustomerProductResource(Resource):
+    def get(self, Id):
+        customerProduct = CustomerProduct.query.get_or_404(Id)
+        return customerproduct_schema.dump(customerProduct)
+
+    def patch(self, Id):
+        customerProduct = CustomerProduct.query.get_or_404(Id)
+
+        # if 'Id' in request.json:
+        #     customerProduct.Id = request.json['Id']
+        if 'customerId' in request.json:
+            customerProduct.firstName = request.json['customerId']
+        if 'productId' in request.json:
+            customerProduct.secondName = request.json['productId']
+
+        db.session.commit()
+        return customerproduct_schema.dump(customerProduct)
+
+    def delete(self, Id):
+        customerProduct = CustomerProduct.query.get_or_404(Id)
+        db.session.delete(customerProduct)
+        db.session.commit()
+        return '', 204
+
+
 api.add_resource(CustomerListResource, '/customers')
 api.add_resource(CustomerResource, '/customers/<int:customerId>')
 api.add_resource(ProductListResource, '/products')
 api.add_resource(ProductResource, '/products/<int:productId>')
 api.add_resource(UserListResource, '/users')
 api.add_resource(UserResource, '/users/<int:userId>')
+api.add_resource(CustomerProductListResource, '/customerproducts')
+api.add_resource(CustomerProductResource, '/customerproducts/<int:Id>')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

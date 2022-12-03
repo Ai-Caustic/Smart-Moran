@@ -44,6 +44,15 @@ roles = Table(
     Column('roleName', String, unique=True)
 )
 
+customerProducts = Table(
+    'customerProducts', meta,
+    Column('Id', Integer, primary_key=True),
+    Column('customerId', Integer, ForeignKey(
+        'customers.customerId'), nullable=False),
+    Column('productId', Integer, ForeignKey(
+        'products.productId'), nullable=False)
+)
+
 # Create all defined table objects
 meta.create_all(engine)
 
