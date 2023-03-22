@@ -27,8 +27,8 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     description = db.Column(db.String, nullable=False)
-    image = db.Column(db.Blob)
-    video = db.Column(db.Blob)
+    image = db.Column(db.LargeBinary)
+    video = db.Column(db.LargeBinary)
     customers = db.relationship('Customer', secondary=customer_product)
 
 
