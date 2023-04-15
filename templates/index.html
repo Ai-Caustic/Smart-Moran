@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href={{ url_for('static', filename='style.css') }} />
+  <link rel="stylesheet" href={{ url_for('static', filename='footer.css') }}>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/6a2471a53c.js" crossorigin="anonymous"></script>
+
+  <title>Smart Moran</title>
+</head>
+
+<body onload="load()">
+  <header class="header">
+    <span>
+      <img class="logoMoran" src={{ url_for('static', filename='/Images/moranlogo.png') }}>
+    </span>
+    <span>
+    </span>
+  </header>
+  <div class="section1" id="section1">
+    <div class="card text-center" id="smartCurtain">
+      <div class="card-header">
+        <h4>
+          Smart Curtain Control &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkSmartCurtain">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartCurtainControl/smc1.jpg')  }} alt="Smart Curtain Control" id="slider1">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p> Control the opening and closing of the curtains <br> with a single click on your phone</p>
+            <li>
+              <p>Draw the curtains without getting up from bed <br> or the couch</p>
+            </li>
+            <li>
+              <p>Motorization of any curtains</p>
+            </li>
+            <li>
+              <p>Silent and durable smart curtain control</p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="waterLeakage">
+      <div class="card-header">
+        <h4>
+          Smart Water Leakage Control &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkWaterLeakage">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartWaterLeakageControl/swlc1.jpg')  }} alt="Smart Water leakage Control" id="slider2">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Installation: Wall-mounted</p>
+            </li>
+            <li>
+              <p>Get notifications on Smart Phone when there is <br> water leakage at home</p>
+            </li>
+            <li>
+              <p>Works with an automatic water tap; you can <br> close the water remotely incase of leakage</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="smartIntruder">
+      <div class="card-header">
+        <h4>
+          Smart Intruder System &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkSmartIntruder">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartIntruderSystem/sis1.jpg')  }} alt="Smart Intruder System" id="slider3">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Automatic arm and disarm alarm based on time <br> or events
+            </li>
+            <li>
+              <p>Arm and disarm alarm remotely</p>
+            </li>
+            <li>
+              <p>Receive alerts via sms</p>
+            </li>
+            <li>
+              <p>Integrates with Smart Moran products like <br> smart locks, smart security lighting etc. </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card text-center" id="smartGate">
+      <div class="card-header">
+        <h4>
+          Smart Gate Automation &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkSmartGate">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img img src={{ url_for('static', filename='/Images/SmartGateAutomation/sga1.jpg')  }} alt="Smart Gate Automation" id="slider4">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Automatic opening and closing of the gate</p>
+            </li>
+            <li>
+              <p>Safety features - Object detection </p>
+            </li>
+            <li>
+              <p>Manual override - you have options to open <br> or close the gate</p>
+            </li>
+            <li>
+              <p>Remote notification when gate is opened/closed <br> at home</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="smartCCTV">
+      <div class="card-header">
+        <h4>
+          Smart CCTV and Surveillance <br> System &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkSmartCCTV">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartCCTV/sc1.jpg')  }} alt="Smart CCTV and Surveillance System" id="slider5">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Clear videos and image recording using smart <br> CCTV solution</p>
+            </li>
+            <li>
+              <p>Two way communication</p>
+            </li>
+            <li>
+              <p>4G and WI-FI support to allow remote access</p>
+            </li>
+            <li>
+              <p>Solar powered for remote locations and <br> construction sites</p>
+            </li>
+            <li>
+              <p>Motion detection and tracking</p>
+            </li>
+            <li>
+              <p>Wireless - no cabling required</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav1">
+        <button type="button" class="btn btn-primary" onclick="displaySec2()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section2" id="section2">
+
+    <div class="card text-center" id="windowSensor">
+      <div class="card-header">
+        <h4>
+          WiFi Door-Sensor and <br> Window Sensor &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkWindowSensor">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/WifiDoorSensorWindowSensor/wds1.jpg')  }} alt="Wifi Door-Sensor/Window Sensor" id="slider6">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p> Get a notification everytime the door or window <br> is opened
+            </li>
+            <li>
+              <p>Trigger an alarm when the door/window <br> is opened while away</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="fireDetection">
+      <div class="card-header">
+        <h4>
+          Smart Moran Fire <br> Detection Solutions &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkFireDetection">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/FireDetection/fd1.jpg')  }} alt="Smart Moran Fire Detection Solutions" id="slider7">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Alerts you on the phone when smoke or fire <br> is detected</p>
+            </li>
+            <li>
+              <p>Trigger an alarm automatically in case of fire</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="powerSockets">
+      <div class="card-header">
+        <h4>
+          Smart Power Sockets &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkPowerSockets">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartPowerSockets/sps1.jpg')  }} alt="Smart Power Sockets" id="slider8">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Switch appliances on and off remotely, using <br> Smart Moran App</p>
+            </li>
+            <li>
+              <p>Schedule and time when the plug powers <br> on or off the appliances</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="securityLighting">
+      <div class="card-header">
+        <h4>
+          Smart Security Lighting &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkSecurityLighting">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartSecurityLighting/ssl1.jpg')  }} alt="Smart Security Lighting" id="slider9">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Secure your home and save energy by <br> controlling when and how security lights <br> switch on and
+                off</p>
+            </li>
+            <li>
+              <p>Use motion detectors to swuitch on thye lights</p>
+            </li>
+            <li>
+              <p>Switch lights on when door is opened or <br> someone walks into the room</p>
+            </li>
+            <li>
+              <p>Switch lights on when alarm is triggered</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="indoorLighting">
+      <div class="card-header">
+        <h4>
+          Smart Indoor Lighting <br> Solutions &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkIndoorLighting">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartIndoorLighting/sil1.jpg')  }} alt="Smart Indoor Lighting Solutios" id="slider10">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Automate lighting on and off your home</p>
+            </li>
+            <li>
+              <p>Cut energy costs by keeping lights off when not <br> in use</p>
+            </li>
+            <li>
+              <p>Switch lights on when door is opened <br> or someone walks in the room</p>
+            </li>
+            <li>
+              <p>Works with Smart Moran App, Google Home <br> & Alexa Echo</p>
+            </li>
+            <li>
+              <p>Colors: White, black, gold</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-center" id="energyMonitoring">
+      <div class="card-header">
+        <h4>
+          Smart Energy Monitoring <br> Solutions &nbsp;
+          <input class="form-check-input bg-dark" type="checkbox" value="yes" id="checkEnergyMonitoring">
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="card-img">
+          <img src={{ url_for('static', filename='/Images/SmartEnergyMonitoring/sem1.jpg')  }} alt="Smart Energy Monitoring Solutions" id="slider11">
+        </div>
+        <div class="card-text">
+          <ul>
+            <li>
+              <p>Fit for both electrical and solar</p>
+            </li>
+            <li>
+              <p>Monitors energy consumption throughout <br> the home</p>
+            </li>
+            <li>
+              <p>Shows energy user patterns and real-time data</p>
+            </li>
+            <li>
+              <p>It helps you breakdown your electricity bill and <br> identify ways to reduce it</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav2">
+        <button type="button" class="btn btn-primary" onclick="displaySec1()">Previous</button>
+      </div>
+
+    </div>
+
+
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('main.slideshow') }}"></script>
+</body>
+<footer>
+  <div class="footer">
+    <div class="sec aboutus">
+      <h2>About Us</h2>
+      <p>SmartMoran connects smart devices to work in unison, delivering a truly intelligent smart home experience that
+        makes your life convenient, safe, and enjoyable.</p>
+    </div>
+    <div class="sec contacts">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span>
+            <i class="fa-solid fa-map-pin" aria-hidden="true"></i>
+          </span>
+          <span>
+            Kofisi,<br>
+            Karen 45 Africa Reit,<br>Karen road
+          </span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-sharp fa-solid fa-mobile" aria-hidden="true"></i>
+          </span>
+          <span>
+            <p><a href="tel:+254720044213"> 0720044213</a></p>
+          </span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </span>
+          <span><a href="http://www.smartmoran.com" target="_blank">www.smartmoran.com</a></span>
+        </li>
+        <li>
+          <span>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </span>
+          <span>
+            <p><a href="mailto:moran@smartmoran.com"> moran@smartmoran.com</a></p>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<hr class="hr">
+<div class="copyright-text">
+  <p>Copyright &copy; 2022 Smart Moran. Made By Victor &nbsp;
+    <a href="mailto:victormichenim@gmail.com">
+      <i class="fa fa-envelope" id="email_button"></i></a>
+  </p>
+</div>
+
+</html>

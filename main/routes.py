@@ -6,4 +6,8 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return 'Hello World'
+    return render_template('index.html')
+
+@main.route('/slideshow.js')
+def slideshow():
+    render_template('/js/slideshow.js')

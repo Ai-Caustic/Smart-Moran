@@ -1,6 +1,6 @@
 function slider() {
   let slider = document.getElementById("slider1");
-  let path = "Images\\SmartCurtainControl\\";
+  let path = "smartmoran\\static\\Images\\SmartCurtainControl\\";
   let type = ".jpg";
   let images = [
     `${path}` + `smc1` + `${type}`,
